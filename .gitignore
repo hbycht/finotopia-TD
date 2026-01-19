@@ -5,6 +5,8 @@ scripts/**
 env/**
 !env/.gitkeep
 
+.DS_Store
+
 
 ## BASIC PYTHON IGNORE ##
 
