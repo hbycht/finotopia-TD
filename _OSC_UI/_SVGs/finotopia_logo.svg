@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400.98 333">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d08cff;
+        font-family: DeuteriumVariable-Black, 'Deuterium Variable';
+        font-size: 300px;
+        font-variation-settings: 'wght' 700;
+        font-weight: 800;
+      }
+
+      .cls-1, .cls-2 {
+        isolation: isolate;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g id="Ebene_1-2" data-name="Ebene 1">
+    <g class="cls-2">
+      <text class="cls-1" transform="translate(0 255)"><tspan x="0" y="0">fin</tspan><tspan class="cls-3" x="401.39" y="0">o</tspan><tspan x="589.19" y="0">t</tspan><tspan class="cls-3" x="726.59" y="0">opi</tspan><tspan x="1201.48" y="0">a</tspan></text>
+    </g>
+  </g>
+</svg>
