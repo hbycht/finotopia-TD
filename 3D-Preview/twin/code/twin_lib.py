@@ -365,7 +365,8 @@ def cook_mh(scriptOp, root, t):
     m = mh_state(root, t)
     n = len(m['head'])
     length = np.full(n, s['mh_beam_length'])
-    rad = length * math.tan(math.radians(s['mh_beam_angle'] / 2.0))
+    r0 = s.get('mh_beam_start_radius', 0.0)                   # Strahlradius an der Linse (Roehre statt Spitze)
+    rad = r0 + length * math.tan(math.radians(s['mh_beam_angle'] / 2.0))
     ye = np.array([_euler_xyz(R) for R in m['yoke_R']])
     he = np.array([_euler_xyz(R) for R in m['head_R']])
     write_chop(scriptOp, n, {
@@ -373,7 +374,7 @@ def cook_mh(scriptOp, root, t):
         'hx': m['head'][:, 0], 'hy': m['head'][:, 1], 'hz': m['head'][:, 2],
         'dx': m['dir'][:, 0], 'dy': m['dir'][:, 1], 'dz': m['dir'][:, 2],
         'yrx': ye[:, 0], 'yry': ye[:, 1], 'yrz': ye[:, 2],
-        'rx': he[:, 0], 'ry': he[:, 1], 'rz': he[:, 2], 'len': length, 'rad': rad,
+        'rx': he[:, 0], 'ry': he[:, 1], 'rz': he[:, 2], 'len': length, 'rad': rad, 'start': r0 / rad,
         'r': m['beam'][:, 0], 'g': m['beam'][:, 1], 'b': m['beam'][:, 2],
         'rr': m['ring'][:, 0], 'rg': m['ring'][:, 1], 'rb': m['ring'][:, 2], 'inten': m['inten']})
     _cache['mh_last'] = m

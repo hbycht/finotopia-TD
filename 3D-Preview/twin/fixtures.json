@@ -3,7 +3,7 @@
   "settings": {
     "mh_pan_range": 540,
     "mh_tilt_range": 270,
-    "mh_beam_angle": 6.0,
+    "mh_beam_angle": 5.5,
     "mh_beam_length": 14.0,
     "pixel_size": 0.03,
     "mh_field_angle": 8.5,
@@ -11,7 +11,8 @@
     "mh_pan_speed": 340.0,
     "mh_tilt_speed": 255.0,
     "mh_smoothing": 0.08,
-    "_doc_mh": "MovoBeam 100: Beam 5.5/Field 8.5 Grad (Handbuch), Pan 540/Tilt 270 Grad (Kalibrierung). Speed in Grad/s (max. Kopfgeschwindigkeit), smoothing = Zeitkonstante in s."
+    "_doc_mh": "MovoBeam 100: Beam 5.5/Field 8.5 Grad (Handbuch), Pan 540/Tilt 270 Grad (Kalibrierung). Beam = Roehre mit Startradius mh_beam_start_radius an der Linse, oeffnet mit mh_beam_angle. Speed in Grad/s, smoothing = Zeitkonstante in s.",
+    "mh_beam_start_radius": 0.05
   },
   "movingheads": [
     {

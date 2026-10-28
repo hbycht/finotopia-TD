@@ -5,8 +5,8 @@ Aufruf:  python3 build_meshes.py [twin-ordner]
 Konventionen (lokale Achsen, Einheit m):
   mh_yoke.ply  Buegel, Aufhaengepunkt im Ursprung, haengt nach -y.  Dreht per Instancing um y (Pan).
   mh_head.ply  Kopf, Zentrum im Ursprung, Linse zeigt nach -y.       Instancing: rotate-to-vector, forward = negy.
-  beam.ply     offener Kegel, Spitze im Ursprung, oeffnet nach -y, Laenge 1, Endradius 1.
-               Instancing: sx=sz=Radius, sy=Laenge, rotate-to-vector forward = negy.
+  beam.ply     offener Zylinder, Radius 1, von y=0 bis y=-1. Die Aufweitung (Startradius an der Linse ->
+               Endradius) rechnet beam.glsl (uStart). Instancing: sx=sz=Endradius, sy=Laenge.
   shade.ply    Industrieschirm (Halbkugel-Schuessel), Oeffnung zeigt nach +z, Durchmesser 1.
   bulb.ply     laengliches Ellipsoid (Bulb), Durchmesser 1, Hoehe 1.6.
   ring_seg.ply ein Viertel des LED-Rings vor der Linse (Kreisbogen um +x, -38..38 Grad, Ebene y=-0.135).
@@ -83,9 +83,9 @@ m = Mesh()
 m.lathe([(0.0, 0.12), (0.10, 0.12), (0.12, 0.0), (0.11, -0.12), (0.09, -0.13)], BODY, sides=16)
 m.write("mh_head.ply")
 
-# Beam-Kegel, offen, Spitze im Ursprung
+# Beam: offener Zylinder (Form macht der Shader)
 m = Mesh()
-m.lathe([(0.0, 0.0), (1.0, -1.0)], (1, 1, 1), sides=24)
+m.lathe([(1.0, 0.0), (1.0, -1.0)], (1, 1, 1), sides=24)
 m.write("beam.ply")
 
 # Blinder-Schirm: Schuessel, Oeffnung nach +z

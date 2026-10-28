@@ -1,10 +1,12 @@
 // beam - volumetrischer Lichtkegel der Moving Heads (additiv, ohne Tiefenschreiben).
-// Geometrie: meshes/beam.ply, Kegel mit Spitze im Ursprung, oeffnet nach -y (Laenge 1, Radius 1).
-// Instancing: Position = Kopf, rotate-to-vector = Strahlrichtung, Scale = Radius/Laenge, Farbe = Beam-RGB*Dimmer.
+// Geometrie: meshes/beam.ply, offener Zylinder (Radius 1, y = 0 .. -1). Der Vertex-Shader formt daraus eine Roehre,
+// die an der Linse mit uStart * Endradius beginnt und sich linear auf den Endradius oeffnet.
+// Instancing: Position = Kopf, Rotation = Strahlrichtung, Scale = Endradius/Laenge, Farbe = Beam-RGB*Dimmer.
 
 uniform float uHaze;       // Dunstdichte (Grundwert + FOG-Kanal)
 uniform float uBeamGain;   // Gesamthelligkeit der Beams
 uniform float uEdge;       // Exponent fuer den Fresnel-Rand (hoeher = weicherer Kegel)
+uniform float uStart;      // Startradius / Endradius (0 = Kegelspitze, 1 = Zylinder)
 
 #ifdef TD_VERTEX_SHADER
 out Vert {
@@ -18,9 +20,12 @@ out Vert {
 void main()
 {
     vec3 p = TDPos();
-    oVert.along = clamp(-p.y, 0.0, 1.0);
-    // analytische Kegelnormale (x^2 + z^2 = y^2), vermeidet das N-Attribut der POP-Geometrie
-    vec3 nLocal = normalize(vec3(p.x, -p.y, p.z) + vec3(0.0, 1e-5, 0.0));
+    float s = clamp(-p.y, 0.0, 1.0);
+    oVert.along = s;
+    // Roehre: Radius r(s) = uStart + (1 - uStart) * s; analytische Normale (x, 1 - uStart, z) mit (x, z) = Richtung
+    vec2 dir = normalize(p.xz + vec2(1e-6, 0.0));
+    p.xz = dir * (uStart + (1.0 - uStart) * s);
+    vec3 nLocal = normalize(vec3(dir.x, 1.0 - uStart, dir.y));
     oVert.worldNorm = normalize(TDDeformNorm(nLocal));
     oVert.color = TDInstanceColor(vec4(1.0));
     vec4 worldPos = TDDeform(p);

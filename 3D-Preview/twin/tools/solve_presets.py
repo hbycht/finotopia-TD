@@ -166,8 +166,8 @@ if __name__ == '__main__':
     put('pos_Down', 'MOVO31', v1, v2, f'senkrecht nach unten ({e:.2f} deg)')
     put_32_mirror('pos_Down')
 
-    # --- Wall: Decken-MHs optisch mittig in den Blinder. Der Kegel ist auf 3-5 m so breit wie der Schirm; sein
-    #     sichtbarer Abschluss (der Rand, der am Schirm vorbei auf die Wand faellt) liegt auf der Wandebene z=0
+    # --- Wall: Decken-MHs optisch mittig in den Blinder; 31/32 kreuzen genau vor der Mitte des Panels.
+    #     Der Strahl ist auf 3-5 m so breit wie der Schirm; sein sichtbarer Abschluss (der Rand, der am Schirm vorbei auf die Wand faellt) liegt auf der Wandebene z=0
     #     -> Strahlachse trifft die Wand genau hinter der Blindermitte (Screenshot-Abgleich 2026-10-28).
     def plane_dist(n, v1, v2, target):
         h, d = head(mh[n]), direction(mh[n], v1, v2)
@@ -180,7 +180,7 @@ if __name__ == '__main__':
         dist = plane_dist(n, v1, v2, bottom)
         put('pos_Wall', n, v1, v2, f'Mitte {bl} (Wandebene, Abstand {dist * 100:.1f} cm)')
     pn = px['PANEL']
-    cross = [pn['pos'][0], pn['pos'][1] + pn['size'] / 2 + 0.2, pn['pos'][2]]   # 20 cm ueber der Oberkante
+    cross = [pn['pos'][0], pn['pos'][1], pn['pos'][2] + 0.3]   # 30 cm vor der Panel-Mitte
     v1, v2, e = solve(m31, cross, get('pos_Wall', 'MOVO31'))
     put('pos_Wall', 'MOVO31', v1, v2, f'Kreuzung {np.round(cross, 2)} ({e:.2f} deg)')
     put_32_mirror('pos_Wall')

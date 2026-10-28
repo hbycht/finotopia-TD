@@ -20,7 +20,7 @@ The 3D view is in `/project1/VISUAL_PREVIEW/twin`, and its output is `twin/null_
   - 2 pentagons under the ceiling
   - 4 bulbs
   - fog
-- **Rendering**: moving-head beams are additive GLSL cones. Pixels are emissive instances. The room is lit by all moving heads, bulbs and pixel fixtures through a single GLSL material, with no Light COMPs, so there is no 8-light limit.
+- **Rendering**: moving-head beams are additive GLSL tubes. They start at the lens with a radius of `mh_beam_start_radius` and open at `mh_beam_angle`, both set in `fixtures.json`. Pixels are emissive instances. The room is lit by all moving heads, bulbs and pixel fixtures through a single GLSL material, with no Light COMPs, so there is no 8-light limit.
 - **Code**: the logic lives in `twin/code/` as text files that are synced to text DATs in the project. The main module is `twin_lib.py`.
 
 ### Parameters on `/project1/VISUAL_PREVIEW/twin`
@@ -61,7 +61,7 @@ The position presets in `MH_Move_Controller/pos_*` were recalculated for the twi
 - **Down**: all heads point straight down.
 - **Center**: all 8 beams meet in one point on the floor.
 - **V**: each pair of opposite heads meets on the floor on its own row.
-- **Wall**: the beams land centred on the blinders, and MOVO31/32 cross above the panel.
+- **Wall**: the beams land centred on the blinders, and MOVO31/32 cross right in front of the centre of the panel.
 - **Bar**: the beams are symmetric.
 - **Twin_Spot** and **Sides**: MOVO31/32 are adjusted to match the other heads.
 
