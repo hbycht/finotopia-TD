@@ -1,0 +1,391 @@
+{
+  "_doc": "Fixture-Inventar fuer den Twin. src = finotopia-COMP unter /project1. Achsen/Einheit wie room.json. Positionen aus Light_in_Action-Frames geschaetzt. Pixel-Fixtures: Pixel-Layout kommt live aus <src>/geo_out (2D, Preview-Raum), Farben aus <src>/col_out; 'size' = reale Breite in m, 'rot' = Euler XYZ in Grad (Ebene liegt lokal in XY, Normale +z). MH/Bulbs/Fog lesen <src>/DMX_CH_RENAMER/in1 (0-255). MH: 31/32 Ecken an der DJ-Wand, 21-24 mittlere Traverse (z=3), 11/12 hinten ueber der Kamera. Pentagons liegen waagerecht unter der Decke (rot x 90).",
+  "settings": {
+    "mh_pan_range": 540,
+    "mh_tilt_range": 270,
+    "mh_beam_angle": 6.0,
+    "mh_beam_length": 14.0,
+    "pixel_size": 0.03,
+    "mh_field_angle": 8.5,
+    "mh_model": "mount: beam = cos(th)u + sin(th)(cos(ph)f + sin(ph)(u x f)); th=(Tilt-0.5)*270, ph=pan_sign*(Pan-0.5)*540",
+    "mh_pan_speed": 340.0,
+    "mh_tilt_speed": 255.0,
+    "mh_smoothing": 0.08,
+    "_doc_mh": "MovoBeam 100: Beam 5.5/Field 8.5 Grad (Handbuch), Pan 540/Tilt 270 Grad (Kalibrierung). Speed in Grad/s (max. Kopfgeschwindigkeit), smoothing = Zeitkonstante in s."
+  },
+  "movingheads": [
+    {
+      "name": "MOVO31",
+      "src": "node1_MOVO_31",
+      "pos": [
+        -2.3,
+        4.25,
+        0.02
+      ],
+      "mount": {
+        "u": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "f": [
+          0.0,
+          1.0,
+          -0.0
+        ],
+        "pan_sign": 1
+      }
+    },
+    {
+      "name": "MOVO32",
+      "src": "node1_MOVO_32",
+      "pos": [
+        2.3,
+        4.25,
+        0.02
+      ],
+      "mount": {
+        "u": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "f": [
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        "pan_sign": 1
+      }
+    },
+    {
+      "name": "MOVO21",
+      "src": "node4_MOVO21",
+      "pos": [
+        -2.24,
+        4.0,
+        3.0
+      ],
+      "mount": {
+        "u": [
+          0.0469,
+          -0.9984,
+          0.0302
+        ],
+        "f": [
+          0.0551,
+          -0.0276,
+          -0.9981
+        ],
+        "pan_sign": 1
+      }
+    },
+    {
+      "name": "MOVO22",
+      "src": "node4_MOVO22",
+      "pos": [
+        -0.68,
+        4.0,
+        3.0
+      ],
+      "mount": {
+        "u": [
+          0.0037,
+          -1.0,
+          0.008
+        ],
+        "f": [
+          -0.1623,
+          -0.0085,
+          -0.9867
+        ],
+        "pan_sign": 1
+      }
+    },
+    {
+      "name": "MOVO23",
+      "src": "node4_MOVO23",
+      "pos": [
+        0.68,
+        4.0,
+        3.0
+      ],
+      "mount": {
+        "u": [
+          -0.0037,
+          -1.0,
+          0.008
+        ],
+        "f": [
+          0.2361,
+          -0.0087,
+          -0.9717
+        ],
+        "pan_sign": 1
+      }
+    },
+    {
+      "name": "MOVO24",
+      "src": "node4_MOVO24",
+      "pos": [
+        2.24,
+        4.0,
+        3.0
+      ],
+      "mount": {
+        "u": [
+          -0.0324,
+          -0.9993,
+          0.0208
+        ],
+        "f": [
+          0.06,
+          -0.0227,
+          -0.9979
+        ],
+        "pan_sign": 1
+      }
+    },
+    {
+      "name": "MOVO11",
+      "src": "node3_MOVO11",
+      "pos": [
+        -2.0,
+        3.85,
+        4.9
+      ],
+      "mount": {
+        "u": [
+          -0.0205,
+          -0.9998,
+          0.0047
+        ],
+        "f": [
+          0.0714,
+          -0.0062,
+          -0.9974
+        ],
+        "pan_sign": 1
+      }
+    },
+    {
+      "name": "MOVO12",
+      "src": "node3_MOVO12",
+      "pos": [
+        2.0,
+        3.85,
+        4.9
+      ],
+      "mount": {
+        "u": [
+          0.0205,
+          -0.9998,
+          0.0047
+        ],
+        "f": [
+          -0.177,
+          -0.0083,
+          -0.9842
+        ],
+        "pan_sign": 1
+      }
+    }
+  ],
+  "pixels": [
+    {
+      "name": "BLINDER_OL",
+      "src": "node2_BLINDER_OL_px",
+      "kind": "blinder",
+      "pos": [
+        -1.757,
+        3.49,
+        0.4
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ],
+      "size": 0.5
+    },
+    {
+      "name": "BLINDER_ML",
+      "src": "node2_BLINDER_ML_px",
+      "kind": "blinder",
+      "pos": [
+        -1.55,
+        2.93,
+        0.4
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ],
+      "size": 0.5
+    },
+    {
+      "name": "BLINDER_UL",
+      "src": "node2_BLINDER_UL_px",
+      "kind": "blinder",
+      "pos": [
+        -1.2,
+        2.418,
+        0.4
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ],
+      "size": 0.5
+    },
+    {
+      "name": "BLINDER_OR",
+      "src": "node2_BLINDER_OR_px",
+      "kind": "blinder",
+      "pos": [
+        1.757,
+        3.49,
+        0.4
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ],
+      "size": 0.5
+    },
+    {
+      "name": "BLINDER_MR",
+      "src": "node2_BLINDER_MR_px",
+      "kind": "blinder",
+      "pos": [
+        1.55,
+        2.93,
+        0.4
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ],
+      "size": 0.5
+    },
+    {
+      "name": "BLINDER_UR",
+      "src": "node2_BLINDER_UR_px",
+      "kind": "blinder",
+      "pos": [
+        1.2,
+        2.418,
+        0.4
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ],
+      "size": 0.5
+    },
+    {
+      "name": "PANEL",
+      "src": "node1_PANEL_px",
+      "kind": "panel",
+      "pos": [
+        0,
+        2.85,
+        0.3
+      ],
+      "rot": [
+        0,
+        0,
+        0
+      ],
+      "size": 1.3
+    },
+    {
+      "name": "PENTAGON_L",
+      "src": "node2_PENTAGON_L_px",
+      "kind": "pentagon",
+      "pos": [
+        -1.6,
+        3.75,
+        3.95
+      ],
+      "rot": [
+        90,
+        0,
+        0
+      ],
+      "size": 1.4
+    },
+    {
+      "name": "PENTAGON_R",
+      "src": "node2_PENTAGON_R_px",
+      "kind": "pentagon",
+      "pos": [
+        1.6,
+        3.75,
+        3.95
+      ],
+      "rot": [
+        90,
+        0,
+        0
+      ],
+      "size": 1.4
+    }
+  ],
+  "bulbs": [
+    {
+      "name": "BULB1",
+      "src": "node4_BULBs",
+      "chan": "Bulb1",
+      "pos": [
+        -0.85,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "name": "BULB2",
+      "src": "node4_BULBs",
+      "chan": "Bulb2",
+      "pos": [
+        0.85,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "name": "BULB3",
+      "src": "node4_BULBs",
+      "chan": "Bulb3",
+      "pos": [
+        -2.6,
+        3.5,
+        4.9
+      ]
+    },
+    {
+      "name": "BULB4",
+      "src": "node4_BULBs",
+      "chan": "Bulb4",
+      "pos": [
+        2.6,
+        3.5,
+        4.9
+      ]
+    }
+  ],
+  "fog": {
+    "src": "node3_FOG",
+    "pos": [
+      -3.15,
+      2.4,
+      8.4
+    ]
+  },
+  "_doc_mounts": "MH-Montage: Decke u~(0,-1,0) (Kalibrierung ref/mh_calibration.json + minimale Korrektur, damit Center exakt in center_target trifft). Wand 31/32 (Henning 2026-10-28): Plattform auf der DJ-Wand, Grundposition senkrecht von der Wand weg; 31 Tilt kleiner -> nach unten; 32 um 180 Grad um die eigene Achse gedreht (aus Hennings Presets). Presets: tools/solve_presets.py."
+}
